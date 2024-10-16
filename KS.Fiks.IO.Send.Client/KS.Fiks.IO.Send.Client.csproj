@@ -28,10 +28,11 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
 		</PackageReference>
 	</ItemGroup>
-	<ItemGroup Condition="'$(Configuration)'=='Release'">
+	<!--<ItemGroup Condition="'$(Configuration)'=='Release'">
 		<PackageReference Include="KS.Fiks.Maskinporten.Client" Version="1.1.11" />
-	</ItemGroup>
-	<ItemGroup Condition="'$(Configuration)'=='Debug'">
+	</ItemGroup>-->
+	<!--Condition="'$(Configuration)'=='Debug'"-->
+	<ItemGroup >
 		<ProjectReference Include="..\..\fiks-maskinporten-client-dotnet\KS.Fiks.Maskinporten.Client\KS.Fiks.Maskinporten.Client.csproj" />
 	</ItemGroup>
 	<ItemGroup>
