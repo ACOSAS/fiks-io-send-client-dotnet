@@ -1,47 +1,52 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Title>KS FIKS IO Send Client</Title>
-        <Authors>Ks-Kommunesektorens Organisasjon</Authors>
-        <Copyright>Ks-Kommunesektorens Organisasjon</Copyright>
-        <RootNamespace>KS.Fiks.IO.Send.Client</RootNamespace>
-        <PackageProjectUrl>https://github.com/ks-no/fiks-io-send-client-dotnet</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/ks-no/fiks-io-send-client-dotnet.git</RepositoryUrl>
-        <PackageLicenseFile>LICENSE</PackageLicenseFile>
-        <PackageIcon>KS.png</PackageIcon>
-        <RepositoryType>git</RepositoryType>
-        <PackageTags>FIKS</PackageTags>
-        <VersionPrefix>2.0.1</VersionPrefix>
-        <TargetFrameworks>net6.0;netcoreapp3.1;netstandard2.1</TargetFrameworks>
-        <IncludeSymbols>true</IncludeSymbols>
-        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
-    </PropertyGroup>
-    <ItemGroup>
-        <PackageReference Include="KS.Fiks.IO.Crypto" Version="1.0.2" />
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-        <PackageReference Include="KS.Fiks.QA" Version="1.0.0" PrivateAssets="All" />
-        <PackageReference Include="KS.Fiks.Maskinporten.Client" Version="1.1.10" />
-        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-        </PackageReference>
-    </ItemGroup>
-    <ItemGroup>
-        <None Include="KS.png">
-            <Pack>true</Pack>
-            <PackagePath>/</PackagePath>
-        </None>
-        <None Include="../LICENSE">
-            <Pack>true</Pack>
-            <PackagePath>/</PackagePath>
-        </None>
-        <None Include="../README.md">
-            <Pack>true</Pack>
-            <PackagePath>/</PackagePath>
-        </None>        
-    </ItemGroup>
+	<PropertyGroup>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Title>KS FIKS IO Send Client</Title>
+		<Authors>Ks-Kommunesektorens Organisasjon</Authors>
+		<Copyright>Ks-Kommunesektorens Organisasjon</Copyright>
+		<RootNamespace>KS.Fiks.IO.Send.Client</RootNamespace>
+		<PackageProjectUrl>https://github.com/ks-no/fiks-io-send-client-dotnet</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/ks-no/fiks-io-send-client-dotnet.git</RepositoryUrl>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageIcon>KS.png</PackageIcon>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>FIKS</PackageTags>
+		<VersionPrefix>2.0.1</VersionPrefix>
+		<TargetFrameworks>net8.0;net6.0;netcoreapp3.1;netstandard2.1</TargetFrameworks>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="KS.Fiks.IO.Crypto" Version="1.0.4" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="KS.Fiks.QA" Version="1.0.0" PrivateAssets="All" />
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup Condition="'$(Configuration)'=='Release'">
+		<PackageReference Include="KS.Fiks.Maskinporten.Client" Version="1.1.11" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(Configuration)'=='Debug'">
+		<ProjectReference Include="..\..\fiks-maskinporten-client-dotnet\KS.Fiks.Maskinporten.Client\KS.Fiks.Maskinporten.Client.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="KS.png">
+			<Pack>true</Pack>
+			<PackagePath>/</PackagePath>
+		</None>
+		<None Include="../LICENSE">
+			<Pack>true</Pack>
+			<PackagePath>/</PackagePath>
+		</None>
+		<None Include="../README.md">
+			<Pack>true</Pack>
+			<PackagePath>/</PackagePath>
+		</None>
+	</ItemGroup>
 
 </Project>
