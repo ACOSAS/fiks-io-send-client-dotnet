@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -33,7 +33,9 @@
 	</ItemGroup>-->
 	<!--Condition="'$(Configuration)'=='Debug'"-->
 	<ItemGroup >
-		<ProjectReference Include="..\..\fiks-maskinporten-client-dotnet\KS.Fiks.Maskinporten.Client\KS.Fiks.Maskinporten.Client.csproj" />
+		<ProjectReference Include="..\..\fiks-maskinporten-client-dotnet\KS.Fiks.Maskinporten.Client\KS.Fiks.Maskinporten.Client.csproj" >
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</ProjectReference>
 	</ItemGroup>
 	<ItemGroup>
 		<None Include="KS.png">
